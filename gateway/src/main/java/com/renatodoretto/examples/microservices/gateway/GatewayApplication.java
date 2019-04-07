@@ -1,4 +1,4 @@
-package com.renatodoretto.examples.gateway;
+package com.renatodoretto.examples.microservices.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
