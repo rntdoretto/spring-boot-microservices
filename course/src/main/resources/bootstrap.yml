@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-boot-microservices-course
+  cloud:
+    config:
+      uri:
+      - http://localhost:8888

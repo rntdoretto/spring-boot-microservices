@@ -1,6 +1,7 @@
 spring:
   application:
-    name: registry
+    name: spring-boot-microservices-discovery
+    
 server:
   port: 8081
   
