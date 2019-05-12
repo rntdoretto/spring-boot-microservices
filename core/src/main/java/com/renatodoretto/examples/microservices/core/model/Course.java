@@ -27,7 +27,7 @@ public class Course implements AbstractEntity {
 	private Long id;
 	
 	@NotNull(message = "The field 'title' is mandatory.")
-	@Column(nullable = false)
+	@Column(name = "title", nullable = false)
 	private String title;
 
 }
