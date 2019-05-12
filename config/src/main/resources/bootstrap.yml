@@ -1,10 +1,40 @@
-
-server:
-  port: 8888
-
+logging:
+  level:
+    org.springframework: ERROR
+    com.renatodoretto.examples.microservices: DEBUG
+    
 spring:
+  application:
+    name: configserver
+  profiles:
+    active:
+    - local
   cloud:
     config:
       server:
         git:
           uri: https://github.com/rntdoretto/properties.git
+          repos:
+            local:
+              pattern:
+                - "*/local"
+              uri: file:///C:/dev/Workspaces/STS/properties
+            dev:
+              pattern:
+                - "*/dev"
+              uri: file:///C:/dev/Workspaces/STS/properties
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url: 
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10 #heartbeats
+    lease-expiration-duration-in-seconds: 20 #expiration time
+    health-check-url-path: http://localhost:${server.port}/health

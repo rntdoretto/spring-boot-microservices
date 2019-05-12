@@ -1,6 +1,14 @@
+logging:
+  level:
+    org.springframework: ERROR
+    com.renatodoretto.examples.microservices: DEBUG
+
 spring:
   application:
-    name: spring-boot-microservices-discovery
+    name: discovery
+  profiles:
+    active:
+    - local
     
 server:
   port: 8081
@@ -10,4 +18,4 @@ eureka:
     register-with-eureka: false #auto-register
     fetch-registry: false 
     service-url:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://localhost:${server.port}/eureka

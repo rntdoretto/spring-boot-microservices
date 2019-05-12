@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: spring-boot-microservices-discovery
-  cloud:
-    config:
-      uri:
-      - http://localhost:8888

@@ -1,7 +1,13 @@
 spring:
   application:
-    name: spring-boot-microservices-gateway
+    name: gateway
+  profiles:
+    active:
+    - local
   cloud:
-    config:
-      uri:
-      - http://localhost:8888
+    discovery:
+      enabled: true
+      client:
+        simple:
+          local:
+            service-id: configserver
