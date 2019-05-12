@@ -18,15 +18,15 @@ import com.renatodoretto.examples.microservices.core.repository.ApplicationUserR
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@Service
 @Slf4j
+@Service
 @RequiredArgsConstructor(onConstructor_ = { @Autowired })
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private final ApplicationUserRepository applicationUserRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) {
 		log.info("Searching in the DB the user by username '{}'", username);
 		ApplicationUser applicationUser = applicationUserRepository.findByUsername(username);
 		log.info("ApplicationUser found '{}'", applicationUser);
@@ -38,6 +38,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	}
 
 	private static final class CustomUserDetails extends ApplicationUser implements UserDetails {
+
+		private static final long serialVersionUID = 6537661370030932016L;
 
 		public CustomUserDetails(@NotNull ApplicationUser applicationUser) {
 			super(applicationUser);

@@ -37,7 +37,7 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
 			.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
 			.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and().exceptionHandling().authenticationEntryPoint((req, resp, e)->resp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-			.and().addFilter(new JwtUsernameAndPasswordAuthenticationFilter())
+			.and().addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration))
 			.authorizeRequests()
 				.antMatchers(jwtConfiguration.getLoginURL()).permitAll()
 				.antMatchers("/course/admin/**").hasRole("ADMIN")

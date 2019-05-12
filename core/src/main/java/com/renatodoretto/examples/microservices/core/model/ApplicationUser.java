@@ -9,20 +9,16 @@ import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
 public class ApplicationUser implements AbstractEntity {
 	private static final long serialVersionUID = 985599989403670605L;
 
@@ -42,8 +38,10 @@ public class ApplicationUser implements AbstractEntity {
 	
 	@NotNull(message = "The field 'role' is mandatory.")
 	@Column(nullable = false)
+	@Builder.Default
 	private String role = "USER";
 
+	//Copy Constructor
 	public ApplicationUser(@NotNull ApplicationUser applicationUser) {
 		this.id = applicationUser.getId();
 		this.username = applicationUser.getUsername();
