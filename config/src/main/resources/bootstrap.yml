@@ -18,11 +18,11 @@ spring:
             local:
               pattern:
                 - "*/local"
-              uri: file:///C:/dev/Workspaces/STS/spring-boot-microservices/git-localconfig-repo
+              uri: file:///C:/dev/Workspaces/STS/git-localconfig-repo
             dev:
               pattern:
                 - "*/dev"
-              uri: file:///C:/dev/Workspaces/STS/spring-boot-microservices/git-localconfig-repo
+              uri: file:///C:/dev/Workspaces/STS/git-localconfig-repo
 
 server:
   port: 8888
