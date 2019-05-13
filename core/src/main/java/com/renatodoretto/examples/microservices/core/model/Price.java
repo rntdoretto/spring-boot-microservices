@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Course implements AbstractEntity {
+public class Price implements AbstractEntity {
 	private static final long serialVersionUID = 985599989403670605L;
 
 	@Id
@@ -26,12 +26,11 @@ public class Course implements AbstractEntity {
 	@EqualsAndHashCode.Include
 	private Long id;
 	
-	@NotNull(message = "The field 'title' is mandatory.")
-	@Column(name = "title", nullable = false)
-	private String title;
+	@NotNull(message = "The field 'currency' is mandatory.")
+	@Column(name = "currency", nullable = false)
+	private String currency;
 	
 	@NotNull(message = "The field 'price' is mandatory.")
 	@Column(name = "price", nullable = false)
-	private Long price;
-
+	private Double price;
 }

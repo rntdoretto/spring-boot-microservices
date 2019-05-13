@@ -1,12 +1,12 @@
-INSERT INTO Course(title)
-VALUES('Java');
-INSERT INTO Course(title)
-VALUES('Spring Fundamentals');
-INSERT INTO Course(title)
-VALUES('Spring Framework');
-INSERT INTO Course(title)
-VALUES('Spring Boot');
-INSERT INTO Course(title)
-VALUES('Spring Cloud');
-INSERT INTO Course(title)
-VALUES('Microservices Arcthiteture');
+INSERT INTO Course(title, price)
+VALUES('Java', 1);
+INSERT INTO Course(title, price)
+VALUES('Spring Fundamentals', 2);
+INSERT INTO Course(title, price)
+VALUES('Spring Framework', 3);
+INSERT INTO Course(title, price)
+VALUES('Spring Boot', 4);
+INSERT INTO Course(title, price)
+VALUES('Spring Cloud', 5);
+INSERT INTO Course(title, price)
+VALUES('Microservices Arcthiteture', 6);
