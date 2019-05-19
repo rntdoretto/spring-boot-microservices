@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active:
+    - local
+    
+server:
+  port: 8765
+
+eureka:
+  client:
+#    register-with-eureka: true #auto-register
+#    fetch-registry: true 
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#  cloud:
+#    discovery:
+#      enabled: true
+#      client:
+#        simple:
+#          local:
+#            service-id: config-server
