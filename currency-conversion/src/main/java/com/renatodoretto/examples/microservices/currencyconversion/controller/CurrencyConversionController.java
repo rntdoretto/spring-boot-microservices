@@ -15,7 +15,9 @@ import com.renatodoretto.examples.microservices.currencyconversion.model.Currenc
 import com.renatodoretto.examples.microservices.currencyconversion.proxy.CurrencyExchangeProxy;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequiredArgsConstructor(onConstructor_ = { @Autowired })
 @RestController
 public class CurrencyConversionController {
@@ -34,6 +36,8 @@ public class CurrencyConversionController {
 				"http://localhost:8000/currency-exchange/from/{from}/to/{to}", CurrencyConversion.class, uriVariables);
 		CurrencyConversion response = responseEntity.getBody();
 
+		log.info("{}", response);
+		
 		return new CurrencyConversion(response.getId(), from, to, response.getConversionMultiple(), quantity,
 				quantity.multiply(response.getConversionMultiple()), response.getPort());
 	}

@@ -10,7 +10,9 @@ import com.renatodoretto.examples.microservices.currencyexchange.model.ExchangeV
 import com.renatodoretto.examples.microservices.currencyexchange.service.ExchangeValueService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequiredArgsConstructor(onConstructor_ = { @Autowired })
 @RestController
 public class CurrencyExchangeController {
@@ -22,6 +24,7 @@ public class CurrencyExchangeController {
 	public ExchangeValue retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to) {
 		ExchangeValue exchangeValue = exchangeValueService.findExchangeValueByFromAndTo(from, to);
 		exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+		log.info("{}", exchangeValue);
 		return exchangeValue;
 	}
 }
