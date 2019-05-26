@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.renatodoretto.examples.microservices.currencyconversion.model.CurrencyConversion;
 
-@FeignClient(name = "gateway")
-@RibbonClient(name = "currency-exchange")
+@FeignClient(name = "gateway", path = "microservices")
+@RibbonClient(name = "currency-exchange-service")
 public interface CurrencyExchangeProxy {
 
-	@GetMapping("/currency-exchange/currency-exchange/from/{from}/to/{to}")
+	@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
 	public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
 }
