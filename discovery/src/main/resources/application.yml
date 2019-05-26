@@ -11,11 +11,11 @@ logging:
     com.renatodoretto.examples.microservices: DEBUG
 
 server:
-  port: 8761
+  port: ${PORT:8761}
   
 spring:
   application:
-    name: discovery
+    name: discovery-server
   profiles:
     active:
     - local

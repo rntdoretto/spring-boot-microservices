@@ -1,8 +1,10 @@
 spring:
   application:
-    name: currency-conversion
+    name: currency-conversion-service
   profiles:    active:    - local
-  cloud:    discovery:      client:        simple:          local:            service-id: config-server              
+  cloud:    discovery:      client:        simple:          local:            service-id: config-server             
+server:
+  port: ${PORT:8100} 
       
 eureka:
   client:
@@ -11,6 +13,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}:${server.port}
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10 #heartbeats
     lease-expiration-duration-in-seconds: 20 #expiration time
+    health-check-url-path: http://localhost:${server.port}/health
