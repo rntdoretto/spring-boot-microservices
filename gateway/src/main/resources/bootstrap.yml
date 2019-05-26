@@ -1,6 +1,6 @@
 spring:
   application:
-    name: limits
+    name: gateway
   profiles:    active:    - local
   cloud:    discovery:      client:        simple:          local:            service-id: config-server              
       
@@ -14,4 +14,3 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10 #heartbeats
     lease-expiration-duration-in-seconds: 20 #expiration time
-    health-check-url-path: http://localhost:${server.port}/health
