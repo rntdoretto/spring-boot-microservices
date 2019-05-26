@@ -1,11 +1,3 @@
-spring:
-  application:
-    name: limits-service
-  profiles:    active:    - local
-  cloud:    discovery:      client:        simple:          local:            service-id: config-server              
-server:
-  port: ${PORT:8080}
-      
 eureka:
   client:
     register-with-eureka: true #auto-register
@@ -18,3 +10,20 @@ eureka:
     lease-renewal-interval-in-seconds: 10 #heartbeats
     lease-expiration-duration-in-seconds: 20 #expiration time
     health-check-url-path: http://localhost:${server.port}/health
+
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: limits-service
+  cloud:    discovery:      client:        simple:          local:            service-id: config-server
+  profiles:
+    active:
+    - ${PROFILES:local}
+  rabbitmq:
+    host: localhost
+    port: 5672 #4369
+    username: guest
+    password: guest
+      

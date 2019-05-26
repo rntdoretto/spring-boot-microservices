@@ -18,4 +18,4 @@ spring:
     name: discovery-server
   profiles:
     active:
-    - local
+    - ${PROFILES:local}
