@@ -1,25 +1,24 @@
-eureka:
-  client:
-    register-with-eureka: true #auto-register
-    fetch-registry: true 
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}:${server.port}
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10 #heartbeats
-    lease-expiration-duration-in-seconds: 20 #expiration time
-    health-check-url-path: http://localhost:${server.port}/health
+############
+## SERVER ##
+############
 
 server:
   port: ${PORT:8765}
   servlet:
     context-path: /microservices
     
+
+############
+## SPRING ##
+############
+
 spring:
   application:
     name: gateway
-  cloud:    discovery:      client:        simple:          local:            service-id: config-server
+  cloud:
+    config:
+      uri:
+      - ${CONFIG_SERVER_URI:http://localhsot:8888}
   profiles:
     active:
-    - ${PROFILES:local}
+    - ${PROFILES:dev}

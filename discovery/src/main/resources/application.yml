@@ -1,18 +1,37 @@
+###################
+## EUREKA SERVER ##
+###################
+
 eureka:
   client:
     register-with-eureka: false #auto-register
     fetch-registry: false 
     service-url:
-      defaultZone: http://localhost:${server.port}/eureka
+      defaultZone: ${EUREKA_URI:http://localhost:${server.port}/eureka}
       
+
+##########
+## LOGS ##
+##########
+
 logging:
   level:
     org.springframework: ERROR
     com.renatodoretto.examples.microservices: DEBUG
 
+
+############
+## SERVER ##
+############
+
 server:
   port: ${PORT:8761}
   
+
+############
+## SPRING ##
+############
+
 spring:
   application:
     name: discovery-server

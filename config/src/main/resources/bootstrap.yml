@@ -1,24 +1,15 @@
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url: 
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}:${server.port}
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10 #heartbeats
-    lease-expiration-duration-in-seconds: 20 #expiration time
-    health-check-url-path: http://localhost:${server.port}/health
-    
-logging:
-  level:
-    com.renatodoretto.examples.microservices: DEBUG
-    org.springframework: ERROR
-    
+############
+## SERVER ##
+############
+
 server:
   port: ${PORT:8888}
-  
+
+
+############
+## SPRING ##
+############
+
 spring:
   application:
     name: config-server
@@ -39,10 +30,5 @@ spring:
               uri: file:///C:/dev/Workspaces/STS/git-localconfig-repo
   profiles:
     active:
-    - ${PROFILES:local}
-  rabbitmq:
-    host: localhost
-    port: 4369
-    username: guest
-    password: guest
+    - ${PROFILES:dev}
         
