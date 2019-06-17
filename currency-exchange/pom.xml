@@ -69,7 +69,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring-boot-microservices-currency-exchange</finalName>
+		<finalName>currency-exchange-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -27,7 +27,7 @@ spring:
             dev:
               pattern:
                 - "*/dev"
-              uri: file:///C:/dev/Workspaces/STS/git-localconfig-repo
+              uri: file:///tmp/git-dev-repo
   profiles:
     active:
     - ${PROFILES:dev}
